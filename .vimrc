@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+" setting python environment variable
+let $PYTHONHOME = 'C:\Program Files\Miniconda3\'
+let $PYTHONPATH = 'C:\Program Files\Miniconda3\DLLs;C:\Program Files\Miniconda3\Lib'
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
@@ -14,7 +18,6 @@ Plugin 'gmarik/Vundle.vim'
 " here we will be adding the plugins
 " ----------------------------------
 "  common
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'matze/vim-move'
 Plugin 'easymotion/vim-easymotion'
@@ -26,6 +29,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'romainl/Apprentice'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'klen/python-mode'
 " Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
 
 
@@ -134,6 +138,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_balloons=1
+let g:syntastic_python_checker=['flake8']
 
 
 " -----------------
@@ -187,24 +192,25 @@ if has("autocmd")
 endif
 
 if has("win32")
-    "  python3 syntax checker !! line is for WINDOWS
-    let g:syntastic_python_python_exec='C:\ProgramData\chocolatey\lib\python3\tools'
+    " "  python3 syntax checker !! line is for WINDOWS
+    " let g:syntastic_python_python_exec='C:\ProgramData\chocolatey\lib\python3\tools'
 
     " ycm path tu rust src
-    let g:ycm_rust_src_path = 'C:\Users\ypypy\.rust_src\1.13.0\rust\src'
+    let g:ycm_rust_src_path = 'C:\Users\ypypy\.rust_src\1.15.0\rust\src'
 
-    " if executable("PowerShell")
-    "     set shell=PowerShell
-    "     set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
-    "     set shellquote=\"
-    "     " shellxquote mustbe a literalspace character.
-    "     " http://stackoverflow.com/questions/7605917/system-with-powershell-in-vim 
-    "     set shellxquote= 
+    " should be env:TERM = 'posh' in the powershell profile to work
+    if ($term == 'posh')
+        set shell=PowerShell
+        set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
+        set shellquote=\"
+        " shellxquote mustbe a literalspace character.
+        " http://stackoverflow.com/questions/7605917/system-with-powershell-in-vim 
+        set shellxquote= 
 
 
-    "     colorscheme industry
+        colorscheme industry
 
-    " endif
+    endif
 
 endif
 
