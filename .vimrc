@@ -1,9 +1,6 @@
-set nocompatible
+﻿set nocompatible
 filetype off
 
-" setting python environment variable
-let $PYTHONHOME = 'C:\Program Files\Miniconda3\'
-let $PYTHONPATH = 'C:\Program Files\Miniconda3\DLLs;C:\Program Files\Miniconda3\Lib'
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -11,7 +8,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-" Plugin 'VundleVim/Vundle.vim'
 
 " Add all plugins here
 " ----------------------------------
@@ -21,7 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'matze/vim-move'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'rust-lang/rust.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -31,14 +27,18 @@ Plugin 'romainl/Apprentice'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 " Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
-
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
 
 
-" HERE IS MY SETTINGS
-"
+" FINDING FILES:
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+
 let mapleader =","
 
 " for base16 colorscheme
@@ -58,13 +58,14 @@ set hlsearch
 " highlight when search is typing
 set incsearch
 
-" ENCODING
+" ENCODING:
 set fileencoding=utf-8
 set encoding=utf-8
+set bomb
 " set termencoding=utf8
 
 
-" REMAPPING
+" REMAPPING:
 " Esc to Ctrl+L
 imap <C-L> <Esc>
 vmap <C-L> <Esc>
@@ -78,7 +79,7 @@ nnoremap <C-L> :noh<return><esc>
 nnoremap <C-\> :NERDTreeToggle<CR>
 
 
-" KEYMAPPING Russian keyboard
+" KEYMAPPING RUSSIAN KEYBOARD:
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
@@ -86,7 +87,7 @@ highlight lCursor guifg=NONE guibg=Cyan
 " setlocal spell spelllang=ru_yo,en_us
 
 
-" TAB/SPACE SETTING
+" TAB SPACE SETTING:
 set tabstop=4        " width of tab character
 set expandtab        " space charecters when using tab
 set shiftwidth=4     " > and <  moves 4 characters
@@ -95,7 +96,7 @@ set autoindent       " Automatically indent when adding a new line
 
 
 " -------------------
-" EASYMOTION SETTINGS
+" EASYMOTION SETTINGS:
 " -------------------
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -126,7 +127,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " hi link EasyMotion Search
 
 " --------------------
-"  SYNTASTIC SETTINGS
+"  SYNTASTIC SETTINGS:
 " --------------------
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -142,7 +143,7 @@ let g:syntastic_python_checker=['flake8']
 
 
 " -----------------
-" AIRLINE SETTINGS
+" AIRLINE SETTINGS:
 " -----------------
 " always showing statusbar
 set laststatus=2
@@ -169,6 +170,14 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#syntastic#enabled = 1
 
 
+" ---------------------
+" PYTHON MODE SETTINGS:
+" ---------------------
+let g:pymode = 1
+let g:pymode_trim_whitespaces = 1
+let g:pymode_options = 1
+
+
 if has("autocmd")
   " Enable file type detection
   filetype on
@@ -192,25 +201,30 @@ if has("autocmd")
 endif
 
 if has("win32")
-    " "  python3 syntax checker !! line is for WINDOWS
-    " let g:syntastic_python_python_exec='C:\ProgramData\chocolatey\lib\python3\tools'
+
+    " setting python environment variable
+    "  let $PYTHONHOME = 'C:\Program Files\Miniconda3\'
+    " let $PYTHONPATH = 'C:\Program Files\Miniconda3\DLLs;C:\Program Files\Miniconda3\Lib'
+
+    " ycm path for python
+    " let g:ycm_path_to_python_interpreter='C:\Program Files\Miniconda3\'
 
     " ycm path tu rust src
-    let g:ycm_rust_src_path = 'C:\Users\ypypy\.rust_src\1.15.0\rust\src'
+    let g:ycm_rust_src_path = 'C:\Users\ypypy\.rust_src\rust\src'
 
     " should be env:TERM = 'posh' in the powershell profile to work
-    if ($term == 'posh')
-        set shell=PowerShell
-        set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
-        set shellquote=\"
-        " shellxquote mustbe a literalspace character.
-        " http://stackoverflow.com/questions/7605917/system-with-powershell-in-vim 
-        set shellxquote= 
+    " if ($term == 'posh')
+    "     set shell=PowerShell
+    "     set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
+    "     set shellquote=\"
+    "     " shellxquote mustbe a literalspace character.
+    "     " http://stackoverflow.com/questions/7605917/system-with-powershell-in-vim 
+    "     set shellxquote= 
 
 
-        colorscheme industry
+    "     colorscheme industry
 
-    endif
+    " endif
 
 endif
 

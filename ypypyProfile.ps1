@@ -1,4 +1,4 @@
-chcp 1251
+chcp 65001
 
 # ENVIRONMENT VARIABLES
 # for vim to be able to detect powershell
@@ -18,7 +18,7 @@ function prompt {
             cd ($location.Path -Split "::")[1]
             $location = (Get-Location)
         } else {
-            # if we somewhere else usual promt
+            # if we somewhere else usual prompt
         "PS " + $location + "> "
         }
     }
@@ -47,4 +47,12 @@ function whereis {
         }
     }
     ""
+}
+
+
+# running vim without .vimrc settings
+function vi {
+$t = [string]::Join(" ", $args)
+
+vim -u NONE $t
 }
