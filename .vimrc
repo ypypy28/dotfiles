@@ -210,7 +210,7 @@ if has("win32")
     " let g:ycm_path_to_python_interpreter='C:\Program Files\Miniconda3\'
 
     " ycm path tu rust src
-    let g:ycm_rust_src_path = 'C:\Users\ypypy\.rust_src\rust\src'
+    let g:ycm_rust_src_path = '~\.rust_src\rust\src'
 
     " should be env:TERM = 'posh' in the powershell profile to work
     " if ($term == 'posh')
@@ -234,6 +234,8 @@ if has("gui_running")
     set guioptions-=T
     set guifont=Hack:h12
     set guifont=mononoki:h12
+    " set langmenu=en_US.UTF-8 " set the language of the menu (gvim)
+    " language en
 
     if has("gui_win32")
 
