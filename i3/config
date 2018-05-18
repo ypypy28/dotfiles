@@ -201,7 +201,7 @@ bar {
 #######################################################################
 # exec i3-config-wizard
 
-exec "feh --bg-fill ~/.wallpapers/winwall1.jpg"
+exec feh --bg-fill ~/.wallpapers/winwall1.jpg
 exec setxkbmap "us,ru" ",basic" "grp:alt_shift_toggle"
 exec xrandr --output HDMI-0 --auto --left-of LVDS
 
