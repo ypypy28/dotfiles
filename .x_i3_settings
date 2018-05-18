@@ -1,0 +1,21 @@
+﻿
+/* Apprentice color scheme */
+XTerm*background: #262626
+XTerm*foreground: #BCBCBC
+
+XTerm*color0:     #1C1C1C
+XTerm*color1:     #AF5F5F
+XTerm*color2:     #5F875F
+XTerm*color3:     #87875F
+XTerm*color4:     #5F87AF
+XTerm*color5:     #5f5f87
+XTerm*color6:     #5F8787
+XTerm*color7:     #6C6C6C
+XTerm*color8:     #444444
+XTerm*color9:     #FF8700
+XTerm*color10:    #87AF87
+XTerm*color11:    #FFFFAF
+XTerm*color12:    #8FAFD7
+XTerm*color13:    #8787AF
+XTerm*color14:    #5FAFAF
+XTerm*color15:    #FFFFFF
