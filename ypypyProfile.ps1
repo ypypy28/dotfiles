@@ -4,6 +4,9 @@ chcp 65001
 # for vim to be able to detect powershell
 $env:TERM = "posh"
 
+# remove curl alias, because windows already have regular curl
+remove-item alias:curl
+
 # fixed prompt - path shortend when too long
 function prompt {
 

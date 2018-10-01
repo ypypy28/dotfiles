@@ -28,6 +28,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 " Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
 Plugin 'mattn/emmet-vim'
+Plugin 'dracula/Vim'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
