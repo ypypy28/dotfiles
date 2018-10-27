@@ -19,3 +19,5 @@ XTerm*color12:    #8FAFD7
 XTerm*color13:    #8787AF
 XTerm*color14:    #5FAFAF
 XTerm*color15:    #FFFFFF
+
+Xterm.vt100.selectToClipboard: true
