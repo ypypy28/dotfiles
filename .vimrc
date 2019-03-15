@@ -1,4 +1,7 @@
-﻿set nocompatible
+﻿" for english in gvim ui
+set langmenu=none
+
+set nocompatible
 filetype off
 
 
