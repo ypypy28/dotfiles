@@ -32,6 +32,7 @@ Plugin 'klen/python-mode'
 " Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
 Plugin 'mattn/emmet-vim'
 Plugin 'dracula/Vim'
+Plugin 'rust-lang/rust'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
@@ -178,6 +179,7 @@ let g:airline#extensions#syntastic#enabled = 1
 " PYTHON MODE SETTINGS:
 " ---------------------
 let g:pymode = 1
+let g:pymode_python = 'python3' " by default it uses python2
 let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
 
@@ -235,9 +237,10 @@ endif
 
 if has("gui_running")
     
-    set guioptions-=T " dissabple toolbar(T)
-    set guioptions-=r " dissabple right scrollbar
-    set guioptions-=L " dissabple left scrollbar
+    set guioptions-=T " disable toolbar(T)
+    set guioptions-=r " disable right scrollbar
+    set guioptions-=L " disable left scrollbar
+    set guioptions-=m " disable menu bar
     set guifont=Hack:h12
     set guifont=mononoki:h12
     " set langmenu=en_US.UTF-8 " set the language of the menu (gvim)
