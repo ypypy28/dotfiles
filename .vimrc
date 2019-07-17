@@ -237,9 +237,10 @@ endif
 
 if has("gui_running")
     
-    set guioptions-=T " dissabple toolbar(T)
-    set guioptions-=r " dissabple right scrollbar
-    set guioptions-=L " dissabple left scrollbar
+    set guioptions-=T " disable toolbar(T)
+    set guioptions-=r " disable right scrollbar
+    set guioptions-=L " disable left scrollbar
+    set guioptions-=m " disable menu bar
     set guifont=Hack:h12
     set guifont=mononoki:h12
     " set langmenu=en_US.UTF-8 " set the language of the menu (gvim)
