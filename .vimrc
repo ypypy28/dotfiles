@@ -32,6 +32,7 @@ Plugin 'klen/python-mode'
 " Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
 Plugin 'mattn/emmet-vim'
 Plugin 'dracula/Vim'
+Plugin 'rust-lang/rust'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
@@ -178,6 +179,7 @@ let g:airline#extensions#syntastic#enabled = 1
 " PYTHON MODE SETTINGS:
 " ---------------------
 let g:pymode = 1
+let g:pymode_python = 'python3' " by default it uses python2
 let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
 
