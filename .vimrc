@@ -32,7 +32,6 @@ Plugin 'klen/python-mode'
 " Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
 Plugin 'mattn/emmet-vim'
 Plugin 'dracula/Vim'
-Plugin 'rust-lang/rust'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
