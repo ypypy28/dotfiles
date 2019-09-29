@@ -203,8 +203,8 @@ bar {
 # exec i3-config-wizard
 
 exec feh --bg-fill ~/.wallpapers/winwall1.jpg
-exec setxkbmap -layout "us,ru,ca"
-exec setxkbmap -option "grp:alt_shift_toggle,lv3:ralt_switch,misc:typo"
+# exec setxkbmap -layout "us,ru,ca"
+exec setxkbmap -layout "us,ru,ca" -option "grp:alt_shift_toggle,lv3:ralt_switch,misc:typo"
 exec xrandr --output HDMI-0 --auto --left-of LVDS
 
 # exec --no-startup-id i3-msg 'workspace 2; exec firefox'
