@@ -240,15 +240,18 @@ if has("gui_running")
     set guioptions-=r " disable right scrollbar
     set guioptions-=L " disable left scrollbar
     set guioptions-=m " disable menu bar
-    set guifont=Hack:h12
-    set guifont=mononoki:h12
-    " set langmenu=en_US.UTF-8 " set the language of the menu (gvim)
-    " language en
-
     if has("gui_win32")
+        set guifont=Hack:h14
+        set guifont=mononoki:h14
+        " set langmenu=en_US.UTF-8 " set the language of the menu (gvim)
+        " language en
+
 
         " Enable directX font rendering 
         set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
+    else
+        set guifont=Hack\ 14
+        set guifont=mononoki\ 14
 
     endif
 
