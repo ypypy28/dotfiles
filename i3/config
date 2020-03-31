@@ -46,6 +46,11 @@ set $right l
 # XF86AudioPrev
 # XF86AudioNext
 #
+# volume control by media keys with pulseaudio installed
+bindsym XF86AudioRaiseVolume exec amixer -D pulse -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -D pulse -q set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -D pulse -q set Master toggle
+
 #
 #######################################################################
 
