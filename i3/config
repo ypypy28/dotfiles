@@ -208,7 +208,7 @@ bar {
 # exec i3-config-wizard
 
 # set wallpaper
-exec feh --bg-fill ~/.wallpapers/winwall1.jpg
+exec feh --bg-fill ~/Pictures/Wallpapers/winwall1.jpg
 
 # set keyboard layot
 exec setxkbmap -layout "us,ru,ca" -option "grp:alt_shift_toggle,lv3:ralt_switch,misc:typo"
