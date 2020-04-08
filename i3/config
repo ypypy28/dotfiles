@@ -55,7 +55,7 @@ bindsym XF86AudioMute exec amixer -D pulse -q set Master toggle
 #######################################################################
 
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots/'
-bindsym Mod1+Control+l exec i3lock
+bindsym Mod1+Control+l exec i3lock -c 000000
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -207,10 +207,22 @@ bar {
 #######################################################################
 # exec i3-config-wizard
 
+# set wallpaper
 exec feh --bg-fill ~/.wallpapers/winwall1.jpg
-# exec setxkbmap -layout "us,ru,ca"
+
+# set keyboard layot
 exec setxkbmap -layout "us,ru,ca" -option "grp:alt_shift_toggle,lv3:ralt_switch,misc:typo"
+
 exec xrandr --output HDMI-0 --auto --left-of LVDS
+
+#turn off application titles 
+for_window [ class="^.*" ] border pixel 1
+
+# start applications in floating mode
+for_window [ class="Sxiv" ] floating enable
+for_window [ class="vlc" ] floating enable
+for_window [ class="mpv" ] floating enable
+# new_window 1pixel
 
 # exec --no-startup-id i3-msg 'workspace 2; exec firefox'
 exec xrdb -merge ~/.x_i3_settings
