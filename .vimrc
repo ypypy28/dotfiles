@@ -16,12 +16,10 @@ Plugin 'gmarik/Vundle.vim'
 " ----------------------------------
 " here we will be adding the plugins
 " ----------------------------------
-"  common
 Plugin 'scrooloose/nerdtree'
-Plugin 'matze/vim-move'
+" Plugin 'matze/vim-move'
 Plugin 'easymotion/vim-easymotion'
 " Plugin 'scrooloose/syntastic'
-Plugin 'rust-lang/rust.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
@@ -29,9 +27,12 @@ Plugin 'tpope/vim-commentary'
 Plugin 'romainl/Apprentice'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
+" Plugin 'jiangmiao/auto-pairs'  " auto closing  quotatins, parens, brackets
+Plugin 'rust-lang/rust.vim'
 " Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
 Plugin 'mattn/emmet-vim'
 Plugin 'dracula/Vim'
+Plugin 'ap/vim-css-color' 
 
 call vundle#end()           " required
 filetype plugin indent on   " required
@@ -53,6 +54,7 @@ colorscheme apprentice
 set number           " left collon with numbers
 syntax enable        " turn on all the magick, including explorer and syntax highlighting
 set ruler            " turn on the ruller (status info) at the bottom of the screen
+set splitbelow splitright " new window splits will be from below and from the right
 
 " set cursorline
 
