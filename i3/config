@@ -57,7 +57,7 @@ bindsym XF86AudioMute exec amixer -D pulse -q set Master toggle
 # Make Screenshots 
 bindsym Print \
               exec --no-startup-id \
-                   "scrot ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_scrot.jpg \
+                   "scrot ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_scrot.png \
                          --quality 95\
                          -e 'xclip -selection clipboard -t image/png $f'"
 
@@ -66,6 +66,8 @@ bindsym --release Shift+Print \
                    "scrot ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S_scrot.jpg \
                          --select --line style=dash --quality 95 \
                          -e 'xclip -selection clipboard -t image/png $f'"
+
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
 # Alt+Ctrl+L to turn the lockscreen on
 bindsym Mod1+Control+l exec i3lock -c 000000
