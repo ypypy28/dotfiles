@@ -33,6 +33,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'dracula/Vim'
 Plugin 'ap/vim-css-color' 
+Plugin 'fatih/vim-go'
 
 call vundle#end()           " required
 filetype plugin indent on   " required
@@ -50,8 +51,10 @@ let mapleader =","
 " let base16colorspace = 256 " Access colors present in 256 colorspace
 set background=dark
 colorscheme apprentice
+set termwinsize=6x0
 
-set number           " left collon with numbers
+set number           " display line numbers on the left
+set relativenumber   " use relative to the current line numbering to display
 syntax enable        " turn on all the magick, including explorer and syntax highlighting
 set ruler            " turn on the ruller (status info) at the bottom of the screen
 set splitbelow splitright " new window splits will be from below and from the right
@@ -155,7 +158,8 @@ let g:syntastic_python_checker=['flake8']
 set laststatus=2
 
 " setting airline theme
-let g:airline_theme = 'base16_monokai'
+let g:airline_theme = 'google_dark'
+" let g:airline_theme = 'base16_monokai'
 " let g:airline_theme = 'base16_isotope'
 " let g:airline_theme = 'base16_colors'
 " let g:airline_theme = 'dark'
