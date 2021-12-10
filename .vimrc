@@ -1,4 +1,4 @@
-﻿" for english in gvim ui
+" for english in gvim ui
 set langmenu=none
 
 set nocompatible
@@ -51,7 +51,7 @@ let mapleader =","
 " let base16colorspace = 256 " Access colors present in 256 colorspace
 set background=dark
 colorscheme apprentice
-set termwinsize=6x0
+set termwinsize=6x0  " sets initial size of a terminal window
 
 set number           " display line numbers on the left
 set relativenumber   " use relative to the current line numbering to display
@@ -70,7 +70,7 @@ set incsearch
 " ENCODING:
 set fileencoding=utf-8
 set encoding=utf-8
-set bomb
+set nobomb " using BOM is kinda bad practice, turn it off
 " set termencoding=utf8
 
 
