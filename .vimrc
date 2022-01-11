@@ -52,7 +52,7 @@ let mapleader =","
 " let base16colorspace = 256 " Access colors present in 256 colorspace
 set background=dark
 colorscheme apprentice
-set termwinsize=6x0  " sets initial size of a terminal window
+set termwinsize=6*0  " sets initial size of a terminal window
 
 set number           " display line numbers on the left
 set relativenumber   " use relative to the current line numbering to display
