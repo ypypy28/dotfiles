@@ -34,6 +34,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'dracula/Vim'
 Plugin 'ap/vim-css-color' 
 Plugin 'fatih/vim-go'
+Plugin 'euclio/vim-markdown-composer' 
 
 call vundle#end()           " required
 filetype plugin indent on   " required
