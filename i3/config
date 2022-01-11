@@ -231,8 +231,6 @@ bar {
 # create Pictures subdirectories
 exec bash -c "[ -d ~/Pictures/Screenshots ] || mkdir -p ~/Pictures/Screenshots"
 exec bash -c "[ -d ~/Pictures/Wallpapers ] || mkdir -p ~/Pictures/Wallpapers"
-# exec bash -c "[ -d ~/TEST_FOLDER_CREATION ] || mkdir ~/TEST_FOLDER_CREATION"
-# exec bash -c "[ -d /home/shtab/TEST_FOLDER_CREATION28 ] || mkdir ~/TEST_FOLDER_CREATION28"
 
 # set wallpaper
 exec feh --bg-fill ~/Pictures/Wallpapers/winwall1.jpg
