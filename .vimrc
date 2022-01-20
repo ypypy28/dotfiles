@@ -224,6 +224,9 @@ if has("win32")
     " ycm path tu rust src
     let g:ycm_rust_src_path = '~\.rust_src\rust\src'
 
+    " turn on completer for c++
+    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
+
     " should be env:TERM = 'posh' in the powershell profile to work
     " if ($term == 'posh')
     "     set shell=PowerShell
