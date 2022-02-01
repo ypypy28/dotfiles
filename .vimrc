@@ -143,13 +143,13 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_signs=1
-let g:syntastic_enable_balloons=1
-let g:syntastic_python_checker=['flake8']
+" let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_wq=0
+" let g:syntastic_enable_signs=1
+" let g:syntastic_enable_balloons=1
+" let g:syntastic_python_checker=['flake8']
 
 
 " -----------------
@@ -188,6 +188,8 @@ let g:pymode = 1
 let g:pymode_python = 'python3' " by default it uses python2
 let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
+" let g:pymode_lint_ignore = ["E203"]
+let g:pymode_options_max_line_length = 88  " like with black
 
 
 if has("autocmd")
