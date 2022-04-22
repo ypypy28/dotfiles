@@ -52,13 +52,14 @@ let mapleader =","
 " let base16colorspace = 256 " Access colors present in 256 colorspace
 set background=dark
 colorscheme apprentice
-set termwinsize=6*0  " sets initial size of a terminal window
+set termwinsize=10x0  " sets initial size of a terminal window
 
 set number           " display line numbers on the left
 set relativenumber   " use relative to the current line numbering to display
 syntax enable        " turn on all the magick, including explorer and syntax highlighting
 set ruler            " turn on the ruller (status info) at the bottom of the screen
 set splitbelow splitright " new window splits will be from below and from the right
+set noequalalways    " turn off splits autoresize 
 
 " set cursorline
 
@@ -190,6 +191,11 @@ let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
 " let g:pymode_lint_ignore = ["E203"]
 let g:pymode_options_max_line_length = 88  " like with black
+
+let g:pymode_rope = 1
+let g:pymode_rope_refix = '<C-c>'
+let g:pymode_rope_project_root = ""
+let g:pymode_rope_complete_on_dot = 0
 
 
 if has("autocmd")
