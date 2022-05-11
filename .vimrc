@@ -19,7 +19,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'matze/vim-move'
 Plugin 'easymotion/vim-easymotion'
-" Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
@@ -137,22 +136,6 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " how to highlight words when easymotion
 " hi link EasyMotion Search
 
-" --------------------
-"  SYNTASTIC SETTINGS:
-" --------------------
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list=1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_check_on_wq=0
-" let g:syntastic_enable_signs=1
-" let g:syntastic_enable_balloons=1
-" let g:syntastic_python_checker=['flake8']
-
-
 " -----------------
 " AIRLINE SETTINGS:
 " -----------------
@@ -178,8 +161,8 @@ let g:airline#extentions#tabline#tab_min_count = 0
 " if file have same name as already oppend one - show directory
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" enable Syntastic integration
-let g:airline#extensions#syntastic#enabled = 1
+" " enable Syntastic integration
+" let g:airline#extensions#syntastic#enabled = 1
 
 
 " ---------------------
@@ -189,13 +172,17 @@ let g:pymode = 1
 let g:pymode_python = 'python3' " by default it uses python2
 let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
-" let g:pymode_lint_ignore = ["E203"]
 let g:pymode_options_max_line_length = 88  " like with black
 
 let g:pymode_rope = 1
 let g:pymode_rope_refix = '<C-c>'
 let g:pymode_rope_project_root = ""
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_completion = 1
+let g:pymode_rope_completion_bind = '<C-Space>'
+" let g:pymode_lint_ignore = ["E203"]
+let g:pymode_lint_on_write = 0
+map <Leader>L :PymodeLint<CR>
 
 
 if has("autocmd")
