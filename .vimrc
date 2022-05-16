@@ -175,8 +175,9 @@ let g:pymode_options = 1
 let g:pymode_options_max_line_length = 88  " like with black
 
 let g:pymode_rope = 1
+let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_refix = '<C-c>'
-let g:pymode_rope_project_root = ""
+" let g:pymode_rope_project_root = ""
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_completion = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
