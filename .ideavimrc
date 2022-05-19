@@ -3,38 +3,9 @@ filetype off
 
 " ideavim plugins
 set surround
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-" Plugin 'VundleVim/Vundle.vim'
-
-" Add all plugins here
-" ----------------------------------
-" here we will be adding the plugins
-" ----------------------------------
-"  common
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'scrooloose/nerdtree'
-Plugin 'matze/vim-move'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'rust-lang/rust.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'romainl/Apprentice'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
-
-
-call vundle#end()           " required
-filetype plugin indent on   " required
-
+set vim-easymotion
+set vim-commentary
+set ideajoin
 
 " HERE IS MY SETTINGS
 "
@@ -123,52 +94,6 @@ let g:EasyMotion_smartcase = 1
 " let g:EasyMotion_do_shade = 0
 " how to highlight words when easymotion
 " hi link EasyMotion Search
-
-" --------------------
-"  SYNTASTIC SETTINGS
-" --------------------
-"  python3 syntax checker !! line is for WINDOWS
-let g:syntastic_python_python_exec='C:\ProgramData\chocolatey\lib\python3\tools'
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_signs=1
-let g:syntastic_enable_balloons=1
-
-
-" -----------------
-" AIRLINE SETTINGS
-" -----------------
-" always showing statusbar
-set laststatus=2
-
-" setting airline theme
-let g:airline_theme = 'base16_monokai'
-" let g:airline_theme = 'base16_isotope'
-" let g:airline_theme = 'base16_colors'
-" let g:airline_theme = 'dark'
-
-" using patched fonts from powerline
-let g:airline_powerline_fonts = 1
-
-" turn on tab managing
-let g:airline#extentions#tabline#enabled = 1
-
-" always show tabline
-let g:airline#extentions#tabline#tab_min_count = 0
-
-" if file have same name as already oppend one - show directory
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-" enable Syntastic integration
-let g:airline#extensions#syntastic#enabled = 1
-
 
 if has("autocmd")
   " Enable file type detection
