@@ -106,9 +106,13 @@ bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+$left move left
+bindsym $mod+Control+$left move left 50 px
 bindsym $mod+Shift+$down move down
+bindsym $mod+Control+$down move down 50 px
 bindsym $mod+Shift+$up move up
+bindsym $mod+Control+$up move up 50 px
 bindsym $mod+Shift+$right move right
+bindsym $mod+Control+$right move right 50 px
 
 # move active floating window to the center
 bindsym $mod+c move position center
