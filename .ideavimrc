@@ -1,6 +1,39 @@
 set nocompatible
 filetype off
 
+
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all plugins here
+" ----------------------------------
+" here we will be adding the plugins
+" ----------------------------------
+Plugin 'scrooloose/nerdtree'
+" Plugin 'matze/vim-move'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'romainl/Apprentice'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'klen/python-mode'
+" Plugin 'jiangmiao/auto-pairs'  " auto closing  quotatins, parens, brackets
+Plugin 'rust-lang/rust.vim'
+" Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
+Plugin 'mattn/emmet-vim'
+Plugin 'dracula/Vim'
+Plugin 'ap/vim-css-color' 
+Plugin 'fatih/vim-go'
+Plugin 'euclio/vim-markdown-composer' 
+
+call vundle#end()           " required
+filetype plugin indent on   " required
+
 " ideavim plugins
 set surround
 set vim-easymotion
