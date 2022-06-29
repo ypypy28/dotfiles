@@ -15,7 +15,7 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToogle'}
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
