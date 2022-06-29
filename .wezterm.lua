@@ -1,7 +1,14 @@
 local wezterm = require 'wezterm';
 return {
-    font = wezterm.font("mononoki"),
+    -- font = wezterm.font("mononoki"),
     -- font = wezterm.font("Hack"),
+    font = wezterm.font_with_fallback({
+        "mononoki",
+        -- "Hack",
+        "PowerlineSymbols",
+        -- "PowerlineExtraSymbols",
+        -- "FontAwesome",
+    }),
     font_size = 14,
 
     -- color_scheme = "Breeze",
