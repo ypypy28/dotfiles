@@ -4,10 +4,8 @@ return {
     -- font = wezterm.font("Hack"),
     font = wezterm.font_with_fallback({
         "mononoki",
-        -- "Hack",
+        "FreeMono",
         "PowerlineSymbols",
-        -- "PowerlineExtraSymbols",
-        -- "FontAwesome",
     }),
     font_size = 14,
 
