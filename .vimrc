@@ -1,42 +1,40 @@
 " for english in gvim ui
 set langmenu=none
 
-set nocompatible
-filetype off
+
+function! BuildMDComposer(info)
+    if a:info.status != 'unchanged' || a:info.force
+        if has('nvim')
+            !cargo build --release --locked
+        else
+            !cargo build --release --locked --no-default-features --features json-rpc
+        endif
+    endif
+endfunction
 
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToogle'}
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color' 
 
-" Add all plugins here
-" ----------------------------------
-" here we will be adding the plugins
-" ----------------------------------
-Plugin 'scrooloose/nerdtree'
-" Plugin 'matze/vim-move'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'romainl/Apprentice'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'klen/python-mode'
-" Plugin 'jiangmiao/auto-pairs'  " auto closing  quotatins, parens, brackets
-Plugin 'rust-lang/rust.vim'
-" Plugin 'chriskempson/base16-vim' " base16 color schemes didn't work in cmd  :(
-Plugin 'mattn/emmet-vim'
-Plugin 'dracula/Vim'
-Plugin 'ap/vim-css-color' 
-Plugin 'fatih/vim-go'
-Plugin 'euclio/vim-markdown-composer' 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-call vundle#end()           " required
-filetype plugin indent on   " required
+Plug 'romainl/Apprentice'
+Plug 'dracula/Vim', { 'as': 'dracula' }
+
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop'}
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } 
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer')  }
+
+call plug#end()
 
 
 " FINDING FILES:
@@ -221,7 +219,7 @@ if has("win32")
     let g:ycm_rust_src_path = '~\.rust_src\rust\src'
 
     " turn on completer for c++
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
+    let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
 
     " should be env:TERM = 'posh' in the powershell profile to work
     " if ($term == 'posh')
@@ -264,4 +262,3 @@ if has("gui_running")
 
     
 endif
-
