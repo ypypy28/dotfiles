@@ -19,5 +19,17 @@ return {
         right = 0,
         top = 0,
         bottom = 0,
+    },
+
+    -- custom keyboard shortcuts
+    keys = {
+        {
+            key="%", mods="SHIFT|CTRL",
+            action=wezterm.action.SplitHorizontal{domain="CurrentPaneDomain"}
+        },
+        {
+            key="\"", mods="SHIFT|CTRL",
+            action=wezterm.action.SplitVertical{domain="CurrentPaneDomain"}
+        },
     }
 }
