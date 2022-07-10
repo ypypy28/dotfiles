@@ -1,4 +1,6 @@
 local wezterm = require 'wezterm';
+local act = wezterm.action
+
 return {
     -- font = wezterm.font("mononoki"),
     -- font = wezterm.font("Hack"),
@@ -25,11 +27,27 @@ return {
     keys = {
         {
             key="%", mods="SHIFT|CTRL",
-            action=wezterm.action.SplitHorizontal{domain="CurrentPaneDomain"}
+            action=act.SplitHorizontal{domain="CurrentPaneDomain"}
         },
         {
             key="\"", mods="SHIFT|CTRL",
-            action=wezterm.action.SplitVertical{domain="CurrentPaneDomain"}
+            action=act.SplitVertical{domain="CurrentPaneDomain"}
+        },
+        {
+            key="h", mods="CTRL|SHIFT",
+            action=act.ActivatePaneDirection("Left")
+        },
+        {
+            key="l", mods="CTRL|SHIFT",
+            action=act.ActivatePaneDirection("Right")
+        },
+        {
+            key="k", mods="CTRL|SHIFT",
+            action=act.ActivatePaneDirection("Up")
+        },
+        {
+            key="j", mods="CTRL|SHIFT",
+            action=act.ActivatePaneDirection("Down")
         },
     }
 }
