@@ -2,8 +2,6 @@ local wezterm = require 'wezterm';
 local act = wezterm.action
 
 return {
-    -- font = wezterm.font("mononoki"),
-    -- font = wezterm.font("Hack"),
     font = wezterm.font_with_fallback({
         "mononoki",
         "FreeMono",
