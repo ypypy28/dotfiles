@@ -33,6 +33,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer')  }
+Plug 'NoahTheDuke/vim-just'
 
 call plug#end()
 
