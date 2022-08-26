@@ -87,7 +87,6 @@ nnoremap <C-L> :noh<return><esc>
 " toggle NerdTree
 nnoremap <C-\> :NERDTreeToggle<CR>
 
-
 " KEYMAPPING RUSSIAN KEYBOARD:
 set keymap=russian-jcukenwin
 set iminsert=0
@@ -182,7 +181,6 @@ let g:pymode_rope_completion = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
 " let g:pymode_lint_ignore = ["E203"]
 let g:pymode_lint_on_write = 0
-map <Leader>L :PymodeLint<CR>
 
 
 if has("autocmd")
@@ -197,6 +195,8 @@ if has("autocmd")
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  " to use pyling only on python files
+  autocmd FileType python nmap <Leader>L :PymodeLint<CR>
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
