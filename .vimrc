@@ -195,6 +195,8 @@ if has("autocmd")
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  " build and run current go file
+  autocmd FileType go nmap <Leader>r :GoRun %<CR>
   " to use pyling only on python files
   autocmd FileType python nmap <Leader>L :PymodeLint<CR>
 
