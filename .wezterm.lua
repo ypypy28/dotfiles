@@ -49,5 +49,5 @@ return {
             key="j", mods="CTRL|SHIFT",
             action=act.ActivatePaneDirection("Down")
         },
-    }
+    },
 }
