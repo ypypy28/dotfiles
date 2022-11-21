@@ -24,30 +24,47 @@ return {
     },
 
     -- custom keyboard shortcuts
+    leader = { key=',', mods='CTRL' },
     keys = {
         {
-            key="%", mods="SHIFT|CTRL",
-            action=act.SplitHorizontal{domain="CurrentPaneDomain"}
+            key='%', mods='SHIFT|CTRL',
+            action=act.SplitHorizontal{domain='CurrentPaneDomain'}
         },
         {
-            key="\"", mods="SHIFT|CTRL",
-            action=act.SplitVertical{domain="CurrentPaneDomain"}
+            key='\"', mods='SHIFT|CTRL',
+            action=act.SplitVertical{domain='CurrentPaneDomain'}
         },
         {
-            key="h", mods="CTRL|SHIFT",
-            action=act.ActivatePaneDirection("Left")
+            key='h', mods='CTRL|SHIFT',
+            action=act.ActivatePaneDirection 'Left'
         },
         {
-            key="l", mods="CTRL|SHIFT",
-            action=act.ActivatePaneDirection("Right")
+            key='H', mods='LEADER',
+            action = act.AdjustPaneSize { 'Left', 5 },
         },
         {
-            key="k", mods="CTRL|SHIFT",
-            action=act.ActivatePaneDirection("Up")
+            key='l', mods='CTRL|SHIFT',
+            action=act.ActivatePaneDirection 'Right' 
         },
         {
-            key="j", mods="CTRL|SHIFT",
-            action=act.ActivatePaneDirection("Down")
+            key='L', mods='LEADER',
+            action=act.AdjustPaneSize { 'Right', 5 },
+        },
+        {
+            key='k', mods='CTRL|SHIFT',
+            action=act.ActivatePaneDirection 'Up' 
+        },
+        {
+            key='K', mods='LEADER',
+            action=act.AdjustPaneSize { 'Up', 5 },
+        },
+        {
+            key='j', mods='CTRL|SHIFT',
+            action=act.ActivatePaneDirection 'Down' 
+        },
+        {
+            key='J', mods='LEADER',
+            action=act.AdjustPaneSize { 'Down', 5 },
         },
     },
 }
