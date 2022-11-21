@@ -183,6 +183,13 @@ let g:pymode_rope_completion_bind = '<C-Space>'
 let g:pymode_lint_on_write = 0
 
 
+" ---------------------
+" RUST SETTINGS:
+" ---------------------
+" ycm path tu rust src
+let g:ycm_rust_src_path = $RUST_SRC_PATH
+
+
 if has("autocmd")
   " Enable file type detection
   filetype on
@@ -218,8 +225,6 @@ if has("win32")
     " ycm path for python
     " let g:ycm_path_to_python_interpreter='C:\Program Files\Miniconda3\'
 
-    " ycm path tu rust src
-    let g:ycm_rust_src_path = '~\.rust_src\rust\src'
 
     " turn on completer for c++
     let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
