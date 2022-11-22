@@ -12,6 +12,14 @@ function! BuildMDComposer(info)
     endif
 endfunction
 
+function! s:goyo_enter()
+    set linebreak
+endfunction
+
+function! s:goyo_leave()
+    set nolinebreak
+endfunction
+
 
 call plug#begin('~/.vim/plugged')
 
@@ -34,6 +42,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer')  }
 Plug 'NoahTheDuke/vim-just'
+
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -86,6 +96,9 @@ imap <A-i> <Esc>
 nnoremap <C-L> :noh<return><esc> 
 " toggle NerdTree
 nnoremap <C-\> :NERDTreeToggle<CR>
+"
+" turn on distraction free writing
+nnoremap <LEADER>g :Goyo<return>
 
 " KEYMAPPING RUSSIAN KEYBOARD:
 set keymap=russian-jcukenwin
@@ -213,6 +226,9 @@ if has("autocmd")
   " reload .vimrc after writing changes to disk
   autocmd! BufWritePost .vimrc source $MYVIMRC
 
+  " distraction free mode
+  autocmd! User GoyoEnter nested call <SID>goyo_enter()
+  autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 endif
 
