@@ -234,14 +234,6 @@ endif
 
 if has("win32")
 
-    " setting python environment variable
-    "  let $PYTHONHOME = 'C:\Program Files\Miniconda3\'
-    " let $PYTHONPATH = 'C:\Program Files\Miniconda3\DLLs;C:\Program Files\Miniconda3\Lib'
-
-    " ycm path for python
-    " let g:ycm_path_to_python_interpreter='C:\Program Files\Miniconda3\'
-
-
     " turn on completer for c++
     let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
 
@@ -282,7 +274,4 @@ if has("gui_running")
         set guifont=mononoki\ 14
 
     endif
-
-
-    
 endif
