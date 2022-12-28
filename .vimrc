@@ -71,7 +71,7 @@ set noequalalways    " turn off splits autoresize
 
 " set cursorline
 
-set spellang=en,ru
+set spelllang=en,ru  " default is only en
 
 " highlight search result
 set hlsearch
