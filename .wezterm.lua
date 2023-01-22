@@ -1,8 +1,6 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
-local ram = "QAYIND4PWMSSR5XMGVQWKNESS33CWZGL"
-
 return {
     font = wezterm.font_with_fallback({
         "mononoki",
