@@ -91,10 +91,6 @@ set nobomb " using BOM is kinda bad practice, turn it off
 " Esc to Ctrl+L
 imap <C-L> <Esc>
 vmap <C-L> <Esc>
-" ESC to Alt+a
-imap <A-a> <Esc>
-" ESC to Alt+i
-imap <A-i> <Esc>
 " turning off highlighting after search
 nnoremap <C-L> :noh<return><esc> 
 " toggle NerdTree
