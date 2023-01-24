@@ -71,7 +71,8 @@ set noequalalways    " turn off splits autoresize
 
 " set cursorline
 
-set spelllang=en,ru  " default is only en
+set spelllang=ru_yo,en_us  " default is only en
+set listchars=tab:→\ ,nbsp:_,trail:_,eol:$
 
 " highlight search result
 set hlsearch
@@ -107,7 +108,6 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
-" setlocal spell spelllang=ru_yo,en_us
 
 
 " TAB SPACE SETTING:
