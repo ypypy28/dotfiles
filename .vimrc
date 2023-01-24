@@ -56,8 +56,6 @@ set path+=**
 
 let mapleader =","
 
-" for base16 colorscheme
-" let base16colorspace = 256 " Access colors present in 256 colorspace
 set background=dark
 colorscheme apprentice
 set termwinsize=10x0  " sets initial size of a terminal window
@@ -68,8 +66,6 @@ syntax enable        " turn on all the magick, including explorer and syntax hig
 set ruler            " turn on the ruller (status info) at the bottom of the screen
 set splitbelow splitright " new window splits will be from below and from the right
 set noequalalways    " turn off splits autoresize 
-
-" set cursorline
 
 set spelllang=ru_yo,en_us  " default is only en
 set listchars=tab:→\ ,nbsp:_,trail:_,eol:$
@@ -84,7 +80,7 @@ set incsearch
 set fileencoding=utf-8
 set encoding=utf-8
 set nobomb " using BOM is kinda bad practice, turn it off
-" set termencoding=utf8
+set termencoding=utf8
 
 
 " REMAPPING:
