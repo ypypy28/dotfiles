@@ -138,6 +138,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# close all dunst notifications
+bindsym $mod+n exec dunstctl close-all
+
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
