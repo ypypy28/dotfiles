@@ -36,6 +36,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'romainl/Apprentice'
 Plug 'dracula/Vim', { 'as': 'dracula' }
 
+Plug 'elixir-editors/vim-elixir'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop'}
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } 
