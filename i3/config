@@ -221,7 +221,8 @@ exec bash -c "[ -d ~/Pictures/Wallpapers ] || mkdir -p ~/Pictures/Wallpapers"
 exec feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/winwall1.jpg
 
 # set keyboard layot
-exec --no-startup-id setxkbmap -layout "us,ru,ca" -option "grp:alt_shift_toggle,lv3:ralt_switch,misc:typo"
+exec --no-startup-id setxkbmap -layout "" -option ""
+exec --no-startup-id setxkbmap -layout "us,ru,ca" -option "grp:alt_shift_toggle,lv3:ralt_switch,misc:typo,ctrl:nocaps"
 
 exec xrandr --output HDMI-0 --auto --left-of LVDS
 
