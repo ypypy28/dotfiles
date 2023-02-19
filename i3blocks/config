@@ -1,0 +1,40 @@
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[keyboard_layout]
+label=⌨️ 
+interval=2
+min_width=US
+
+[disk]
+label=💾
+command=df -h / | awk '/\//{ printf("%4s/%s\n", $4, $2)}'
+interval=30
+min_width=100G/768G
+
+[cpu]
+interval=5
+markup=pango
+min_width=CPU:  0.00% @ +00.0°C
+
+[memory]
+label=🧠
+command=free -h | awk '/Mem:/ { printf("%5s/%s\n", $3, $2) }'
+interval=30
+min_width=1,8Gi/7,4Gi
+
+[sound_burst]
+interval=once
+
+[sound_info]
+interval=0
+signal=1
+min_width=🔇:  0%
+
+[TIME_DATE]
+command=date +"%a, %d %b %H:%M:%S"
+interval=5
+min_width=Mon, 2 jan 15:04:05

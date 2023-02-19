@@ -1,0 +1,27 @@
+#!/bin/sh
+COLOR_WHITE=#FFFFFF
+COLOR_GREEN=#90EE90
+COLOR_YELLOW=#DDDD28
+COLOR_RED=#FF2222
+
+_get_color() {
+if [ $1 -lt 30 ] ; then
+    echo $COLOR_WHITE
+elif [ $1 -lt 50 ] ; then
+    echo $COLOR_GREEN
+elif [ $TEMP_VAL -lt 70 ] ; then
+    echo $COLOR_YELLOW
+else 
+    echo $COLOR_RED
+fi
+}
+
+TEMP=$(sensors | grep 'Package id 0:\|Tdie' | grep ':[ ]*+[0-9]*.[0-9]*°C' -o | grep '+[0-9]*.[0-9]*°C' -o)
+TEMP_VAL=$(echo $TEMP | grep -o '[0-9][0-9]')
+TEMP_COLOR=$(_get_color $TEMP_VAL)
+
+CPU_USAGE=$(mpstat 1 1 | awk '/Average:/ {printf("%s\n", $(NF-9))}')
+CPU_VAL=$(echo $CPU_USAGE | grep -o -E '^[0-9]+')
+CPU_COLOR=$(_get_color $CPU_VAL)
+
+echo "$CPU_COLOR $CPU_USAGE $TEMP_COLOR $TEMP" | awk '{ printf("CPU:<span color=\"%s\">%6s%</span> @ <span color=\"%s\" >%s</span>\nCPU:<span color=\"%s\">%6s%</span>\n"), $1, $2, $3, $4, $1, $2 }'

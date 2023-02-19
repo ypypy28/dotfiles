@@ -1,0 +1,8 @@
+#!/bin/env sh
+
+# You have to install xkblayout-state manualy
+# see https://vivien.github.io/i3blocks/#_installation
+layout=$(xkblayout-state print %e | tr "[:lower:]" "[:upper:]")
+
+# full_text\nshort_text\ncolor\nbackground\n
+printf "${layout}\n${layout}"
