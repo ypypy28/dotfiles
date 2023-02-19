@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 VOLUME_MUTE="🔇"
 VOLUME_LOW="🔈"

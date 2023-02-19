@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 COLOR_WHITE=#FFFFFF
 COLOR_GREEN=#90EE90
 COLOR_YELLOW=#DDDD28

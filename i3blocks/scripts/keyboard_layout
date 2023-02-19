@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
 # You have to install xkblayout-state manualy
 # see https://vivien.github.io/i3blocks/#_installation
