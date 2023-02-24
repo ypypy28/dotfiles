@@ -75,7 +75,7 @@ set splitbelow splitright " new window splits will be from below and from the ri
 set noequalalways    " turn off splits autoresize 
 
 set spelllang=ru_yo,en_us  " default is only en
-set listchars=tab:→\ ,nbsp:_,trail:~,eol:$
+set listchars=tab:>-,nbsp:_,trail:~,eol:$
 
 " highlight search result
 set hlsearch
