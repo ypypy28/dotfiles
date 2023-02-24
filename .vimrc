@@ -1,6 +1,12 @@
 " for english in gvim ui
 set langmenu=none
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
+" download plug.vim on the first run
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
 
 function! BuildMDComposer(info)
     if a:info.status != 'unchanged' || a:info.force
