@@ -42,6 +42,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'romainl/Apprentice'
 Plug 'dracula/Vim', { 'as': 'dracula' }
 
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'cheap-glitch/vim-v'
 Plug 'elixir-editors/vim-elixir'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop'}
