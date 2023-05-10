@@ -104,6 +104,10 @@ nnoremap <C-\> :NERDTreeToggle<CR>
 " turn on distraction free writing
 nnoremap <LEADER>g :Goyo<return>
 
+" toggle terminal with Alt+F12
+nnoremap <A-F12> :terminal<CR>
+tnoremap <A-F12> <C-D>
+
 " KEYMAPPING RUSSIAN KEYBOARD:
 set keymap=russian-jcukenwin
 set iminsert=0
