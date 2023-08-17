@@ -5,7 +5,7 @@ chcp 65001
 $env:TERM = "posh"
 
 # remove curl alias, because windows already have regular curl
-remove-item alias:curl
+# remove-item alias:curl
 
 # fixed prompt - path shortend when too long
 function prompt {
@@ -58,4 +58,22 @@ function vi {
 $t = [string]::Join(" ", $args)
 
 vim -u NONE $t
+}
+
+function encrypt-dir {
+    $path = $args[0]
+    $dest = $args[0].TrimEnd("\/") + ".zip"
+    Compress-Archive -Path $path -Destination $dest -Force
+    Remove-Item $path -Recurse
+    gpg -c $dest 
+    Remove-Item $dest
+}
+
+function decrypt-dir {
+    $path = $args[0]
+    $pathArchive = $path.SubString(0, $path.Length - 4)
+    gpg -d -o $pathArchive $path
+    Expand-Archive -Path $pathArchive -Destination . -Force
+    Remove-Item $path
+    Remove-Item $pathArchive
 }
