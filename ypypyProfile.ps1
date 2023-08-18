@@ -1,4 +1,12 @@
-chcp 65001
+if ($isWindows) {
+    chcp 65001
+}
+
+Import-Module PSReadLine
+Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineKeyHandler -Chord Ctrl+j -Function AcceptLine
+Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function AcceptLine
+
 
 # ENVIRONMENT VARIABLES
 # for vim to be able to detect powershell
