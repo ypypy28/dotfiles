@@ -69,19 +69,42 @@ vim -u NONE $t
 }
 
 function encrypt-dir {
-    $path = $args[0]
-    $dest = $args[0].TrimEnd("\/") + ".zip"
-    Compress-Archive -Path $path -Destination $dest -Force
-    Remove-Item $path -Recurse
+    Param(
+        [Alias("Path")]
+        [ValidateScript({if ($_) { Test-Path $_}})]
+        [string]$srcpath
+    )
+    $dest = $srcpath.TrimEnd("\/") + ".zip"
+    Compress-Archive -Path $srcpath -Destination $dest -Force
+    if (!$?) {
+        Write-Host "error while compressing"
+        return;
+    }
+    Remove-Item $srcpath -Recurse
     gpg -c $dest 
+    if (!$?) {
+        Write-Host "error while encrypting ${srcpath}"
+        return;
+    }
     Remove-Item $dest
 }
 
 function decrypt-dir {
-    $path = $args[0]
-    $pathArchive = $path.SubString(0, $path.Length - 4)
-    gpg -d -o $pathArchive $path
+    Param(
+        [Alias("Path")]
+        [ValidateScript({if ($_) { Test-Path $_}})]
+        [string]$srcpath
+    )
+    $pathArchive = $srcpath.SubString(0, $srcpath.Length - 4)
+    gpg -d -o $pathArchive $srcpath
+    if (!$?) {
+        Write-host "error while decrypting ${srcpath}"
+    }
     Expand-Archive -Path $pathArchive -Destination . -Force
-    Remove-Item $path
+    if (!$?) {
+        Write-Host "error while extracting archive $pathArchive"
+        return;
+    }
+    Remove-Item $srcpath
     Remove-Item $pathArchive
 }
