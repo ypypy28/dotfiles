@@ -1,0 +1,29 @@
+{
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "editor.fontSize": 18,
+    "security.workspace.trust.untrustedFiles": "open",
+    "vim.leader": ",",
+    "vim.easymotion": true,
+    "vim.surround": true,
+    "vim.incsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["<C-l>"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["<Enter>"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<C-l>"],
+            "after": ["<Esc>"]
+        }
+    ]
+
+}
