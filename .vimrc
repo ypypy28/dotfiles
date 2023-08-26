@@ -1,7 +1,7 @@
 " for english in gvim ui
 set langmenu=none
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '$HOME/.vim'
 
 " download plug.vim on the first run
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -27,7 +27,7 @@ function! s:goyo_leave()
 endfunction
 
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('$HOME/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'easymotion/vim-easymotion'
@@ -242,7 +242,7 @@ endif
 if has("win32")
 
     " turn on completer for c++
-    let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
+    let g:ycm_global_ycm_extra_conf = "$HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
 
     " should be env:TERM = 'posh' in the powershell profile to work
     " if ($term == 'posh')
