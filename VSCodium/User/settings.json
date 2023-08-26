@@ -1,11 +1,12 @@
 {
     "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
+        "language-julia.interrupt",
+        "-workbench.action.quickOpen"
     ],
+    "terminal.integrated.allowChords": false,
     "julia.symbolCacheDownload": true,
     "editor.fontSize": 18,
     "security.workspace.trust.untrustedFiles": "open",
-	"terminal.integrated.sendKeybindingsToShell": true,
     "vim.leader": ",",
     "vim.easymotion": true,
     "vim.surround": true,
@@ -24,6 +25,12 @@
         {
             "before": ["<C-l>"],
             "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "g"],
+            "commands": ["workbench.action.toggleZenMode"]
         }
     ]
 
