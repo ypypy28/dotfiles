@@ -1,12 +1,6 @@
 " for english in gvim ui
 set langmenu=none
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '$HOME/.vim'
-
-" download plug.vim on the first run
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-endif
 
 function! BuildMDComposer(info)
     if a:info.status != 'unchanged' || a:info.force
@@ -18,43 +12,53 @@ function! BuildMDComposer(info)
     endif
 endfunction
 
+
 function! s:goyo_enter()
     set linebreak
 endfunction
+
 
 function! s:goyo_leave()
     set nolinebreak
 endfunction
 
+let use_plug = empty($NO_VIM_PLUG)
+" download plug.vim on the first run
+if use_plug && empty(globpath(&rtp, 'autoload/plug.vim'))
+  let data_dir = has('nvim') ? stdpath('data') . '/site' : '$HOME/.vim'
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-call plug#begin('$HOME/.vim/plugged')
+if use_plug && !empty(globpath(&rtp, 'autoload/plug.vim'))
+    call plug#begin('$HOME/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'mattn/emmet-vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/goyo.vim'
-Plug 'ap/vim-css-color' 
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
+    Plug 'easymotion/vim-easymotion'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'mattn/emmet-vim'
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/goyo.vim'
+    Plug 'ap/vim-css-color' 
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
-Plug 'romainl/Apprentice'
-Plug 'dracula/Vim', { 'as': 'dracula' }
+    Plug 'romainl/Apprentice'
+    Plug 'dracula/Vim', { 'as': 'dracula' }
 
-Plug 'JuliaEditorSupport/julia-vim'
-Plug 'cheap-glitch/vim-v'
-Plug 'elixir-editors/vim-elixir'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop'}
-Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer')  }
-Plug 'NoahTheDuke/vim-just'
+    Plug 'JuliaEditorSupport/julia-vim'
+    Plug 'cheap-glitch/vim-v'
+    Plug 'elixir-editors/vim-elixir'
+    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop'}
+    Plug 'rust-lang/rust.vim'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } 
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+    Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer')  }
+    Plug 'NoahTheDuke/vim-just'
 
-call plug#end()
+    call plug#end()
+endif
 
 
 " FINDING FILES:
@@ -62,11 +66,10 @@ call plug#end()
 " Provides tab-completion for all file-related tasks
 set path+=**
 
-
 let mapleader =","
 
 set background=dark
-colorscheme apprentice
+silent! colorscheme apprentice
 set termwinsize=10x0  " sets initial size of a terminal window
 
 set number           " display line numbers on the left
@@ -254,7 +257,7 @@ if has("win32")
     "     set shellxquote= 
 
 
-    "     colorscheme industry
+    colorscheme pablo
 
     " endif
 
