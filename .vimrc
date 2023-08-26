@@ -34,6 +34,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/goyo.vim'
 Plug 'ap/vim-css-color' 
 
 Plug 'vim-airline/vim-airline'
@@ -51,8 +53,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildMDComposer')  }
 Plug 'NoahTheDuke/vim-just'
-
-Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
