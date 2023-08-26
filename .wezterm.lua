@@ -13,6 +13,9 @@ return {
     -- color_scheme = "Darkside",
     color_scheme = "OceanicMaterial",
 
+    window_background_opacity = .82,
+    -- text_background_opacity = .56,
+
     hide_tab_bar_if_only_one_tab = true,
     window_padding = {
         left = 0,
