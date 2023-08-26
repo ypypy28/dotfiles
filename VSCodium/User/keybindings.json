@@ -1,5 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
 { "key": "ctrl+j",     "command": "terminal.action.acceptInput",
-                       "when": "terminalFocus && terminalProcessSupported && terminalIsOpen"}
+                       "when": "terminalFocus && terminalProcessSupported && terminalIsOpen"},
+{ "key": "ctrl+\\", "command": "workbench.action.toggleSidebarVisibility"}
 ]

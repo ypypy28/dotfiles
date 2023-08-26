@@ -5,6 +5,7 @@
     "julia.symbolCacheDownload": true,
     "editor.fontSize": 18,
     "security.workspace.trust.untrustedFiles": "open",
+	"terminal.integrated.sendKeybindingsToShell": true,
     "vim.leader": ",",
     "vim.easymotion": true,
     "vim.surround": true,
