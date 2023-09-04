@@ -25,12 +25,12 @@ endfunction
 let use_plug = empty($NO_VIM_PLUG)
 " download plug.vim on the first run
 if use_plug && empty(globpath(&rtp, 'autoload/plug.vim'))
-  let data_dir = has('nvim') ? stdpath('data') . '/site' : '$HOME/.vim'
+  let data_dir = has('nvim') ? stdpath('data') . '/site' : $HOME.'/.vim'
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 if use_plug && !empty(globpath(&rtp, 'autoload/plug.vim'))
-    call plug#begin('$HOME/.vim/plugged')
+    call plug#begin($HOME.'/.vim/plugged')
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
     Plug 'easymotion/vim-easymotion'
@@ -245,7 +245,7 @@ endif
 if has("win32")
 
     " turn on completer for c++
-    let g:ycm_global_ycm_extra_conf = "$HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
+    let g:ycm_global_ycm_extra_conf = $HOME."/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
 
     " should be env:TERM = 'posh' in the powershell profile to work
     " if ($term == 'posh')
