@@ -46,6 +46,7 @@ function prompt {
     "PS " + $location + "> "
 }
 
+
 # simple variation of where from cmd
 function whereis {
     
@@ -68,6 +69,41 @@ $t = [string]::Join(" ", $args)
 vim -u NONE $t
 }
 
+
+function shred-file {
+    Param(
+        [Alias("Path")]
+        [Parameter(Mandatory)]
+        [ValidateScript(
+            {if (Test-Path $_ -PathType Leaf) { $true }
+            else {throw "There is no file: $_"}})]
+        $srcpath
+    )
+    $obj = Get-Item $srcpath
+    $replacement = [Byte[]]::new($obj.Length)
+    $rnd = [System.Random]::new()
+    $rnd.NextBytes($replacement)
+    [System.IO.File]::WriteAllBytes($obj.FullName, $replacement)
+}
+
+
+function shred-dir {
+    Param(
+        [Alias("Path")]
+        [Parameter(Mandatory)]
+        [ValidateScript(
+            {if (Test-Path $_ -PathType Container) { $true }
+            else {throw "There is no directory: $_"}})]
+        $srcpath
+    )
+    foreach ($item in Get-ChildItem $srcpath -Recurse) {
+        if (Test-Path $item -PathType Leaf) {
+            shred-file -Path $item
+        }
+    }
+}
+
+
 function encrypt-dir {
     Param(
         [Alias("Path")]
@@ -89,9 +125,12 @@ function encrypt-dir {
         Remove-Item $dest
         return;
     }
+
+    shred-dir $srcpath
     Remove-Item $srcpath -Recurse
     Remove-Item $dest
 }
+
 
 function decrypt-dir {
     Param(
