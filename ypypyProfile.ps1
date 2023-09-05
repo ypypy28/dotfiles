@@ -10,7 +10,7 @@ Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function AcceptLine
 
 # ENVIRONMENT VARIABLES
 # for vim to be able to detect powershell
-$env:TERM = "posh"
+$env:WINTERM = "pwsh"
 
 # remove curl alias, because windows already have regular curl
 # remove-item alias:curl
@@ -71,7 +71,10 @@ vim -u NONE $t
 function encrypt-dir {
     Param(
         [Alias("Path")]
-        [ValidateScript({if ($_) { Test-Path $_}})]
+        [Parameter(Mandatory)]
+        [ValidateScript(
+            {if (Test-Path $_ -PathType Container) { $true }
+            else {throw "There is no directory: $_"}})]
         [string]$srcpath
     )
     $dest = $srcpath.TrimEnd("\/") + ".zip"
@@ -80,25 +83,30 @@ function encrypt-dir {
         Write-Host "error while compressing"
         return;
     }
-    Remove-Item $srcpath -Recurse
     gpg -c $dest 
     if (!$?) {
         Write-Host "error while encrypting ${srcpath}"
+        Remove-Item $dest
         return;
     }
+    Remove-Item $srcpath -Recurse
     Remove-Item $dest
 }
 
 function decrypt-dir {
     Param(
         [Alias("Path")]
-        [ValidateScript({if ($_) { Test-Path $_}})]
+        [Parameter(Mandatory)]
+        [ValidateScript(
+            {if ($_.EndsWith(".zip.gpg") -and (Test-Path $_ -PathType Leaf)) { $true }
+            else {throw "There is no encrypted dir file: $_"}})]
         [string]$srcpath
     )
-    $pathArchive = $srcpath.SubString(0, $srcpath.Length - 4)
+    $pathArchive = (Get-Item $srcpath).BaseName
     gpg -d -o $pathArchive $srcpath
     if (!$?) {
-        Write-host "error while decrypting ${srcpath}"
+        Write-Host "error while decrypting ${srcpath}"
+        return;
     }
     Expand-Archive -Path $pathArchive -Destination . -Force
     if (!$?) {

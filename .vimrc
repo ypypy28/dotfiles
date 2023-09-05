@@ -247,19 +247,18 @@ if has("win32")
     " turn on completer for c++
     let g:ycm_global_ycm_extra_conf = $HOME."/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
 
-    " should be env:TERM = 'posh' in the powershell profile to work
-    " if ($term == 'posh')
-    "     set shell=PowerShell
-    "     set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
-    "     set shellquote=\"
-    "     " shellxquote mustbe a literalspace character.
-    "     " http://stackoverflow.com/questions/7605917/system-with-powershell-in-vim 
-    "     set shellxquote= 
-
+    " should be env:WINTERM = 'pwsh' in the powershell profile to work
+    if ($WINTERM == "pwsh")
+        set shell=PowerShell
+        set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
+        set shellquote=\"
+        " shellxquote mustbe a literalspace character.
+        " http://stackoverflow.com/questions/7605917/system-with-powershell-in-vim
+        set shellxquote= 
+    endif
 
     colorscheme pablo
 
-    " endif
 
 endif
 
