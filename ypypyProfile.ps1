@@ -50,8 +50,8 @@ function prompt {
 }
 
 
-# simple variation of where from cmd
-function whereis {
+# simple variation of where from cmd or which from sh
+function which {
     
     foreach ($p in ((gci env: | where name -eq PATH).Value -Split ";" | select -Unique )) {
 
