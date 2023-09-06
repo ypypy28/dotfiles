@@ -155,3 +155,20 @@ function decrypt-dir {
     Remove-Item $srcpath
     Remove-Item $pathArchive
 }
+
+function command-exists {
+    Param(
+        [Alias("Name")]
+        [Parameter(Mandatory)]
+        $cmd
+    )
+    if (Get-Command $cmd -ErrorAction SilentlyContinue) {
+        return $true
+    }
+    $false
+}
+
+
+if (command-exists zoxide) {
+    Invoke-Expression (& { (zoxide init powershell | Out-String) })
+}
