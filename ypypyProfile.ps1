@@ -80,13 +80,27 @@ function shred-file {
         [ValidateScript(
             {if (Test-Path $_ -PathType Leaf) { $true }
             else {throw "There is no file: $_"}})]
-        $srcpath
+        $srcpath,
+
+        [Alias("BufferSize")]
+        [UInt32]$bufsize = 4096
     )
+    $buffer = [Byte[]]::new($bufsize)
     $obj = Get-Item $srcpath
-    $replacement = [Byte[]]::new($obj.Length)
+    $leftToWrite = $obj.Length
     $rnd = [System.Random]::new()
-    $rnd.NextBytes($replacement)
-    [System.IO.File]::WriteAllBytes($obj.FullName, $replacement)
+    $fileStream = New-Object IO.FileStream($srcpath, [IO.FileMode]::Open)
+    while ($leftToWrite -gt $bufsize) {
+        $rnd.NextBytes($buffer)
+        $fileStream.Write($buffer, 0, $buffer.Length)
+        $leftToWrite -= $bufsize
+    }
+    if ($leftToWrite -ne 0) {
+        $buffer = [Byte[]]::new($leftToWrite)
+        $rnd.NextBytes($buffer)
+        $fileStream.Write($buffer, 0, $buffer.Length)
+    }
+    $fileStream.Close()
 }
 
 
@@ -130,6 +144,7 @@ function encrypt-dir {
     }
 
     shred-dir $srcpath
+    shred-file $dest
     Remove-Item $srcpath -Recurse
     Remove-Item $dest
 }
