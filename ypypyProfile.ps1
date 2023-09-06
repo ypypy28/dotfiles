@@ -6,6 +6,9 @@ Import-Module PSReadLine
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineKeyHandler -Chord Ctrl+j -Function AcceptLine
 Set-PSReadLineKeyHandler -Chord Ctrl+Enter -Function AcceptLine
+if (Get-Module -Name PSFzf) {
+    Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+}
 
 
 # ENVIRONMENT VARIABLES
