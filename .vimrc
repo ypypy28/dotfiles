@@ -1,6 +1,9 @@
 " for english in gvim ui
 set langmenu=none
 
+if (&rtp !~ '.vim')
+    let &rtp .= ',' . $HOME . '/.vim'
+endif
 
 function! BuildMDComposer(info)
     if a:info.status != 'unchanged' || a:info.force
