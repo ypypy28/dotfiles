@@ -27,6 +27,12 @@
             "after": ["<Esc>"]
         }
     ],
+    "vim.commandLineModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-j>"],
+            "after": ["<Enter>"]
+        }
+    ],
     "vim.normalModeKeyBindings": [
         {
             "before": ["<leader>", "g"],
