@@ -16,7 +16,9 @@ if (Get-Module -Name PSFzf) {
 $env:WINTERM = "pwsh"
 
 # remove curl alias, because windows already have regular curl
-# remove-item alias:curl
+if (Get-Alias curl -ErrorAction SilentlyContinue) {
+    remove-item alias:curl
+}
 
 # fixed prompt - path shortend when too long
 function prompt {
