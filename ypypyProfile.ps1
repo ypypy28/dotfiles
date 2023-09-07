@@ -85,17 +85,19 @@ function shred-file {
         $srcpath,
 
         [Alias("BufferSize")]
-        [UInt32]$bufsize = 4096
+        [UInt32]$Bufsize = 4096,
+
+        [switch]$Remove
     )
-    $buffer = [Byte[]]::new($bufsize)
+    $buffer = [Byte[]]::new($Bufsize)
     $obj = Get-Item $srcpath
     $leftToWrite = $obj.Length
     $rnd = [System.Random]::new()
-    $fileStream = New-Object IO.FileStream($srcpath, [IO.FileMode]::Open)
+    $fileStream = New-Object IO.FileStream($obj, [IO.FileMode]::Open)
     while ($leftToWrite -gt $bufsize) {
         $rnd.NextBytes($buffer)
         $fileStream.Write($buffer, 0, $buffer.Length)
-        $leftToWrite -= $bufsize
+        $leftToWrite -= $Bufsize
     }
     if ($leftToWrite -ne 0) {
         $buffer = [Byte[]]::new($leftToWrite)
@@ -103,6 +105,9 @@ function shred-file {
         $fileStream.Write($buffer, 0, $buffer.Length)
     }
     $fileStream.Close()
+    if ($Remove) {
+        Remove-Item $obj
+    }
 }
 
 
@@ -141,14 +146,15 @@ function encrypt-dir {
     gpg -c $dest 
     if (!$?) {
         Write-Host "error while encrypting ${srcpath}"
-        Remove-Item $dest
+        if (Test-Path $dest) {
+            shred-file $dest -Remove
+        }
         return;
     }
 
     shred-dir $srcpath
-    shred-file $dest
     Remove-Item $srcpath -Recurse
-    Remove-Item $dest
+    shred-file $dest -Remove
 }
 
 
@@ -162,6 +168,23 @@ function decrypt-dir {
         [string]$srcpath
     )
     $pathArchive = (Get-Item $srcpath).BaseName
+    $tmpDst = $pathArchive.substring(0, $pathArchive.Length - 4)
+    if (Test-Path $tmpDst) {
+        $cd = [System.Management.Automation.Host.ChoiceDescription]
+        $answer = $Host.UI.PromptForChoice(
+            "Something in the path $tmpDst already exists.",
+            "Remove it and continue?",
+            @(
+             $cd::new("y", "Remove existing $tmpDst and begin decrypting"),
+             $cd::new("n", "Stop and leave everything as is")
+            ),
+            1
+        )
+        if ($answer -eq 1) {
+            return;
+        }
+        Remove-Item $tmpDst -Recurse
+    }
     gpg -d -o $pathArchive $srcpath
     if (!$?) {
         Write-Host "error while decrypting ${srcpath}"
@@ -170,10 +193,15 @@ function decrypt-dir {
     Expand-Archive -Path $pathArchive -Destination . -Force
     if (!$?) {
         Write-Host "error while extracting archive $pathArchive"
+        shred-file $pathArchive -Remove
+        if (Test-Path $tmpDst) {
+            shred-dir $tmpDst
+            Remove-Item $tmpDst -Recurse
+        }
         return;
     }
     Remove-Item $srcpath
-    Remove-Item $pathArchive
+    shred-file $pathArchive -Remove
 }
 
 function command-exists {
