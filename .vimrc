@@ -233,6 +233,9 @@ if has("autocmd")
   " to use pyling only on python files
   autocmd FileType python nmap <Leader>L :PymodeLint<CR>
 
+  autocmd FileType cpp nnoremap <Leader>d :YcmCompleter GoToDefinition<CR>
+  autocmd FileType cpp nnoremap <Leader>D :YcmCompleter GoToDeclaration<CR>
+
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 
