@@ -39,6 +39,7 @@ if use_plug && !empty(globpath(&rtp, 'autoload/plug.vim'))
     Plug 'easymotion/vim-easymotion'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
     Plug 'mattn/emmet-vim'
     Plug 'junegunn/fzf'
     Plug 'junegunn/goyo.vim'
